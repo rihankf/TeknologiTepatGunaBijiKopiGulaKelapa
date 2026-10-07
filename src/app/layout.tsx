@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat, Roboto } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -32,6 +33,7 @@ export default function RootLayout({
     <html lang="id">
       <body className={`${montserrat.variable} ${roboto.variable}`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
