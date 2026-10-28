@@ -23,7 +23,7 @@ Merupakan platform rekomendasi solusi teknologi pasca panen untuk komoditas **Bi
 1. Pastikan [Node.js](https://nodejs.org/) terinstal
 2. Clone menggunakan perintah:
    ```bash
-   git clone https://github.com/rihankf/TeknologiTepatGunaKopi-COBA.git
+   git clone https://github.com/rihankf/TeknologiTepatGunaBijiKopiGulaKelapa.git
    ```
 3. Instal semua dependensi yang dibutuhkan:
    ```bash
@@ -36,7 +36,8 @@ Merupakan platform rekomendasi solusi teknologi pasca panen untuk komoditas **Bi
 
 ## Teknologi yang Digunakan
 
-- Next.js
-- React
-- TypeScript
+- Next.js 16.3.1
+- React 19.2.4
+- TypeScript 5.8.3
 - Vanilla CSS
+- Vercel Analytics
