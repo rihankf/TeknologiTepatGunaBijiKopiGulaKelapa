@@ -33,11 +33,3 @@ Merupakan platform rekomendasi solusi teknologi pasca panen untuk komoditas **Bi
    ```bash
    npm run dev
    ```
-
-## Teknologi yang Digunakan
-
-- Next.js 16.3.1
-- React 19.2.4
-- TypeScript 5.8.3
-- Vanilla CSS
-- Vercel Analytics
