@@ -436,7 +436,7 @@ body:has(.home-page) .site-header:not(.scrolled) {
 }
 
 .problems-section {
-  background: #ffffff;
+  background: var(--cream);
 }
 .problems-section .section-heading {
   text-align: center;
@@ -990,12 +990,16 @@ body:has(.not-found) .site-header {
 }
 .inner-page {
   min-height: calc(100vh - 350px);
+  padding-top: 76px;
 }
 .inner-page > section {
-  padding-top: 150px !important;
+  padding-top: 40px !important;
 }
 .inner-page > section ~ section {
-  padding-top: 0 !important;
+  padding-top: 40px !important;
+}
+[id] {
+  scroll-margin-top: 90px !important;
 }
 
 .commodities {
@@ -2006,6 +2010,12 @@ body:has(.not-found) .site-header {
   color: #fff;
   background: var(--deep);
   transition: background var(--transition), box-shadow var(--transition);
+  padding: 0 32px;
+}
+@media (max-width: 600px) {
+  .site-header-v2 {
+    padding: 0 16px;
+  }
 }
 .site-header-v2.is-scrolled {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
@@ -2074,6 +2084,10 @@ body:has(.home-page) .site-header-v2:not(.is-scrolled) {
   padding: 8px;
   display: none;
   z-index: 100;
+}
+.nav-dropdown-group:last-child .nav-dropdown-flyout {
+  left: auto;
+  right: 0;
 }
 .nav-dropdown-group.is-open .nav-dropdown-flyout {
   display: flex;
@@ -2241,8 +2255,8 @@ body:has(.home-page) .site-header-v2:not(.is-scrolled) {
 }
 .footer-v2-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1.5fr;
-  gap: 48px;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 56px;
   padding-bottom: 48px;
 }
 .footer-v2-logo {

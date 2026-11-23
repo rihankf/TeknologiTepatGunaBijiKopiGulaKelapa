@@ -28,44 +28,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Kolom 2: Navigasi Cepat */}
-          <div className="footer-col footer-col-nav">
-            <h4 className="footer-col-title">Navigasi Halaman</h4>
-            <ul className="footer-nav-list">
-              <li>
-                <Link href="/" className="footer-nav-link">
-                  Beranda Utama
-                </Link>
-              </li>
-              <li>
-                <Link href="/teknologi" className="footer-nav-link">
-                  Katalog Seluruh Alat
-                </Link>
-              </li>
-              <li>
-                <Link href="/teknologi?filter=kopi" className="footer-nav-link">
-                  Teknologi Biji Kopi
-                </Link>
-              </li>
-              <li>
-                <Link href="/teknologi?filter=gulakelapa" className="footer-nav-link">
-                  Teknologi Gula Kelapa
-                </Link>
-              </li>
-              <li>
-                <Link href="/tentang#identifikasi" className="footer-nav-link">
-                  Identifikasi Masalah Petani
-                </Link>
-              </li>
-              <li>
-                <Link href="/mitra" className="footer-nav-link">
-                  Profil Kerjasama Mitra
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Kolom 3: Alamat & Peta */}
+          {/* Kolom 2: Alamat & Peta */}
           <div className="footer-col footer-col-contact">
             <h4 className="footer-col-title">Lokasi & Kontak Layanan</h4>
             <address className="footer-address">

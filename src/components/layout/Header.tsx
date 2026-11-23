@@ -51,7 +51,6 @@ export default function Header() {
   const dropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const isHome = pathname === "/";
-  const useWhiteLogo = isHome && !scrolled;
 
   const closeAllMenus = useCallback(() => {
     setActiveDropdown(null);
@@ -137,9 +136,6 @@ export default function Header() {
             width={240}
             height={70}
             className="header-logo-img"
-            style={{
-              filter: useWhiteLogo ? "brightness(0) invert(1)" : "none",
-            }}
             priority
           />
         </Link>
