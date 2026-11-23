@@ -1008,6 +1008,16 @@ body:has(.not-found) .site-header {
   min-height: calc(100vh - 350px);
   padding-top: 76px;
 }
+.inner-page.mitra-page {
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100vh - 72px);
+  padding: 110px 0 70px 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1b110a;
+}
 .inner-page > section {
   padding-top: 40px !important;
 }

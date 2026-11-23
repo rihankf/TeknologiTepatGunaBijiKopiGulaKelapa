@@ -49,7 +49,7 @@ export default function Footer() {
             © 2026 Platform Teknologi Tepat Guna Komoditas Unggulan Indonesia. Hak Cipta Dilindungi.
           </p>
           <p className="footer-subtext">
-            Kajian pascapanen & rancang bangun teknologi terjangkau.
+            Kajian pascapanen & rancang bangun teknologi.
           </p>
         </div>
       </div>

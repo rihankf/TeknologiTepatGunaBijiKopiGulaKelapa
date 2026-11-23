@@ -14,111 +14,106 @@ export default function MitraPage() {
   return (
     <>
       <Header />
-      <main className="inner-page">
-        <section
-          className="commodities section"
-          style={{ position: "relative", overflow: "hidden" }}
+      <main className="inner-page mitra-page">
+        <Image
+          src="/images/bg-mitra.webp"
+          alt="Background Mitra"
+          fill
+          priority
+          sizes="100vw"
+          style={{
+            objectFit: "cover",
+            filter: "saturate(0.3)",
+            zIndex: 0,
+            opacity: 0.6,
+          }}
+        />
+        <div
+          className="container"
+          style={{ position: "relative", zIndex: 1, width: "100%" }}
         >
-          <Image
-            src="/images/bg-mitra.webp"
-            alt="Background Mitra"
-            fill
-            priority
-            sizes="100vw"
-            style={{
-              objectFit: "cover",
-              filter: "saturate(0.3)",
-              zIndex: 0,
-              opacity: 0.6,
-            }}
-          />
           <div
-            className="container"
-            style={{ position: "relative", zIndex: 1 }}
+            style={{
+              position: "relative",
+              maxWidth: "900px",
+              margin: "0 auto",
+              padding: "50px 40px",
+              background: "rgba(255, 255, 255, 0.75)",
+              backdropFilter: "blur(12px)",
+              border: "1px solid rgba(255, 255, 255, 0.4)",
+              borderRadius: "var(--radius)",
+              boxShadow: "0 20px 40px rgba(0, 0, 0, 0.18)",
+            }}
           >
-            <div
+            <Image
+              src="/images/logo-kemnaker.webp"
+              alt="Logo Kementerian Ketenagakerjaan"
+              width={200}
+              height={50}
               style={{
-                position: "relative",
-                maxWidth: "900px",
-                margin: "0 auto",
-                padding: "50px 40px",
-                background: "rgba(255, 255, 255, 0.5)",
-                backdropFilter: "blur(10px)",
-                border: "1px solid var(--border)",
-                borderRadius: "var(--radius)",
-                boxShadow: "var(--shadow-lg)",
+                position: "absolute",
+                top: "25px",
+                left: "30px",
+                height: "50px",
+                width: "auto",
               }}
-            >
-              <Image
-                src="/images/logo-kemnaker.webp"
-                alt="Logo Kementerian Ketenagakerjaan"
-                width={200}
-                height={50}
+            />
+            <div style={{ textAlign: "center" }}>
+              <h2 style={{ fontSize: "28px", fontWeight: 700, margin: "0" }}>
+                Mitra Kerjasama
+              </h2>
+              <div
                 style={{
-                  position: "absolute",
-                  top: "25px",
-                  left: "30px",
-                  height: "50px",
-                  width: "auto",
+                  width: "40px",
+                  height: "1px",
+                  background: "var(--sand)",
+                  margin: "15px auto 0",
                 }}
               />
-              <div style={{ textAlign: "center" }}>
-                <h2 style={{ fontSize: "28px", fontWeight: 700, margin: "0" }}>
-                  Mitra Kerjasama
-                </h2>
-                <div
+            </div>
+            <div
+              className="about-copy"
+              style={{
+                marginTop: "10px",
+                maxWidth: "800px",
+                marginInline: "auto",
+                textAlign: "center",
+              }}
+            >
+              <div>
+                <h3
                   style={{
-                    width: "40px",
-                    height: "1px",
-                    background: "var(--sand)",
-                    margin: "15px auto 0",
+                    fontSize: "36px",
+                    fontFamily: "Outfit",
+                    margin: "0 0 15px",
+                    color: "var(--ink)",
                   }}
-                />
-              </div>
-              <div
-                className="about-copy"
-                style={{
-                  marginTop: "10px",
-                  maxWidth: "800px",
-                  marginInline: "auto",
-                  textAlign: "center",
-                }}
-              >
-                <div>
-                  <h3
-                    style={{
-                      fontSize: "36px",
-                      fontFamily: "Outfit",
-                      margin: "0 0 15px",
-                      color: "var(--ink)",
-                    }}
-                  >
-                    BPVP Bandung Barat
-                  </h3>
-                  <p
-                    style={{
-                      color: "var(--muted)",
-                      marginBottom: "25px",
-                      fontSize: "15px",
-                      lineHeight: 1.6,
-                    }}
-                  >
-                    Balai Pelatihan Vokasi dan Produktivitas Bandung Barat yang
-                    berfokus pada pengembangan SDM dan inovasi teknologi
-                  </p>
-                  <a
-                    href="https://bpvpbandungbarat.kemnaker.go.id/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="button"
-                  >
-                    Kunjungi Website BPVP
-                  </a>
-                </div>
+                >
+                  BPVP Bandung Barat
+                </h3>
+                <p
+                  style={{
+                    color: "var(--muted)",
+                    marginBottom: "25px",
+                    fontSize: "15px",
+                    lineHeight: 1.6,
+                  }}
+                >
+                  Balai Pelatihan Vokasi dan Produktivitas Bandung Barat yang
+                  berfokus pada pengembangan SDM dan inovasi teknologi
+                </p>
+                <a
+                  href="https://bpvpbandungbarat.kemnaker.go.id/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="button"
+                >
+                  Kunjungi Website BPVP
+                </a>
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </main>
       <Footer />
       <FloatingContact />
