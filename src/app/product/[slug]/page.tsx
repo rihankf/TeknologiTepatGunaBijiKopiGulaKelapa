@@ -18,10 +18,10 @@ export async function generateMetadata({
   const { slug } = await params;
   const tool = allTools.find((item) => item.slug === slug);
   if (!tool) {
-    return { title: "Produk Tidak Ditemukan — Teknologi Tepat Guna" };
+    return { title: "Produk Tidak Ditemukan: Teknologi Tepat Guna" };
   }
   return {
-    title: `${tool.name} — Teknologi Tepat Guna`,
+    title: `${tool.name} | Teknologi Tepat Guna`,
     description: tool.description,
   };
 }

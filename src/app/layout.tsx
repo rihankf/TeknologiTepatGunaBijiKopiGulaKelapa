@@ -19,7 +19,7 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: {
-    default: "Teknologi Tepat Guna — Komoditas Unggulan Indonesia",
+    default: "Teknologi Tepat Guna | Komoditas Unggulan Indonesia",
     template: "%s",
   },
   description:

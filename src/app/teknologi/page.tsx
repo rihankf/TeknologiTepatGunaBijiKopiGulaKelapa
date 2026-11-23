@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import TeknologiContent from "./TeknologiContent";
 
 export const metadata: Metadata = {
-  title: "Katalog Teknologi — Teknologi Tepat Guna",
+  title: "Katalog Teknologi: Teknologi Tepat Guna",
   description:
     "Cari dan bandingkan alat teknologi tepat guna untuk pasca panen Biji Kopi dan pengolahan Gula Kelapa. Lengkap dengan spesifikasi, harga, dan link pembelian.",
 };

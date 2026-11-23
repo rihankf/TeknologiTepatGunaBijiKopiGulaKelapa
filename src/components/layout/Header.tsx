@@ -3,12 +3,13 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { usePathname } from "next/navigation";
 
 interface DropdownItem {
   label: string;
   href: string;
+  description?: string;
 }
 
 interface NavItem {
@@ -23,10 +24,10 @@ const navItems: NavItem[] = [
     label: "Tentang",
     href: "/tentang",
     dropdown: [
-      { label: "Komoditas", href: "/tentang#komoditas" },
-      { label: "Identifikasi", href: "/tentang#identifikasi" },
-      { label: "Latar Belakang", href: "/tentang#latar-belakang" },
-      { label: "Tujuan", href: "/tentang#tujuan" },
+      { label: "Komoditas Unggulan", href: "/tentang#komoditas", description: "Biji Kopi & Gula Kelapa" },
+      { label: "Identifikasi Masalah", href: "/tentang#identifikasi", description: "Kendala teknis di lapangan" },
+      { label: "Latar Belakang", href: "/tentang#latar-belakang", description: "Kajian urgensi mekanisasi" },
+      { label: "Tujuan Proyek", href: "/tentang#tujuan", description: "Target efisiensi mutu & hasil" },
     ],
   },
   { label: "Mitra", href: "/mitra" },
@@ -34,9 +35,9 @@ const navItems: NavItem[] = [
     label: "Teknologi",
     href: "/teknologi",
     dropdown: [
-      { label: "Semua Teknologi", href: "/teknologi?filter=semua" },
-      { label: "Biji Kopi", href: "/teknologi?filter=kopi" },
-      { label: "Gula Kelapa", href: "/teknologi?filter=gulakelapa" },
+      { label: "Semua Teknologi", href: "/teknologi?filter=semua", description: "Seluruh katalog alat rekomendasi" },
+      { label: "Alat Biji Kopi", href: "/teknologi?filter=kopi", description: "Pengering, pengukur & sortasi" },
+      { label: "Alat Gula Kelapa", href: "/teknologi?filter=gulakelapa", description: "Penyaring & pemasak nira" },
     ],
   },
 ];
@@ -52,22 +53,49 @@ export default function Header() {
   const isHome = pathname === "/";
   const useWhiteLogo = isHome && !scrolled;
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const threshold = isHome ? window.innerHeight - 90 : 20;
-      setScrolled(window.scrollY > threshold);
-    };
-    handleScroll(); // Check initially
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isHome]);
-
-  // Close dropdowns on route change
-  useEffect(() => {
+  const closeAllMenus = useCallback(() => {
     setActiveDropdown(null);
     setMobileOpen(false);
     setMobileDropdown(null);
-  }, [pathname]);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const threshold = isHome ? window.innerHeight - 80 : 15;
+      setScrolled(window.scrollY > threshold);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isHome]);
+
+  // Close menus on route change
+  useEffect(() => {
+    closeAllMenus();
+  }, [pathname, closeAllMenus]);
+
+  // Close menus on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        closeAllMenus();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [closeAllMenus]);
+
+  // Lock body scroll when mobile drawer is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
 
   const handleMouseEnter = (label: string) => {
     if (dropdownTimeout.current) {
@@ -80,7 +108,15 @@ export default function Header() {
   const handleMouseLeave = () => {
     dropdownTimeout.current = setTimeout(() => {
       setActiveDropdown(null);
-    }, 150);
+    }, 120);
+  };
+
+  const handleFocus = (label: string) => {
+    if (dropdownTimeout.current) {
+      clearTimeout(dropdownTimeout.current);
+      dropdownTimeout.current = null;
+    }
+    setActiveDropdown(label);
   };
 
   const toggleMobileDropdown = (label: string) => {
@@ -88,63 +124,56 @@ export default function Header() {
   };
 
   return (
-    <header className={`site-header ${scrolled ? "scrolled" : ""}`}>
-      <div className="container header-inner">
-        <Link href="/" className="logo">
+    <header className={`site-header-v2 ${scrolled ? "is-scrolled" : ""}`}>
+      <div className="container header-inner-v2">
+        <Link
+          href="/"
+          className="header-brand-link"
+          aria-label="Kembali ke Beranda Petrolab Teknologi Tepat Guna"
+        >
           <Image
             src="/images/logo.png"
             alt="Petrolab"
-            width={300}
-            height={90}
+            width={240}
+            height={70}
+            className="header-logo-img"
             style={{
-              width: "auto",
-              height: "80px",
-              objectFit: "contain",
               filter: useWhiteLogo ? "brightness(0) invert(1)" : "none",
-              margin: "0",
             }}
             priority
           />
         </Link>
-        <button
-          className={`menu-toggle ${mobileOpen ? "active" : ""}`}
-          aria-label="Toggle menu"
-          aria-expanded={mobileOpen}
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
-        <nav
-          className={mobileOpen ? "nav open" : "nav"}
-          aria-label="Primary navigation"
-        >
+
+        {/* Desktop Nav */}
+        <nav className="desktop-nav-v2" aria-label="Navigasi Utama">
           {navItems.map((item) =>
             item.dropdown ? (
               <div
                 key={item.label}
-                className={`nav-dropdown-wrapper ${activeDropdown === item.label ? "active" : ""}`}
+                className={`nav-dropdown-group ${
+                  activeDropdown === item.label ? "is-open" : ""
+                }`}
                 onMouseEnter={() => handleMouseEnter(item.label)}
                 onMouseLeave={handleMouseLeave}
               >
-                {/* Desktop: parent link + chevron */}
                 <Link
                   href={item.href}
-                  className="nav-dropdown-trigger"
-                  onClick={() => setMobileOpen(false)}
+                  className="nav-link-v2 nav-dropdown-link"
+                  aria-haspopup="true"
+                  aria-expanded={activeDropdown === item.label}
+                  onFocus={() => handleFocus(item.label)}
                 >
-                  {item.label}
+                  <span>{item.label}</span>
                   <svg
-                    className="nav-chevron"
-                    width="10"
-                    height="6"
-                    viewBox="0 0 10 6"
+                    className="nav-chevron-icon"
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
                     fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
                   >
                     <path
-                      d="M1 1L5 5L9 1"
+                      d="M3 4.5L6 7.5L9 4.5"
                       stroke="currentColor"
                       strokeWidth="1.5"
                       strokeLinecap="round"
@@ -153,50 +182,25 @@ export default function Header() {
                   </svg>
                 </Link>
 
-                {/* Mobile toggle button */}
-                <button
-                  className="nav-dropdown-mobile-toggle"
-                  aria-label={`Toggle ${item.label} submenu`}
-                  onClick={() => toggleMobileDropdown(item.label)}
-                >
-                  {item.label}
-                  <svg
-                    className={`nav-chevron ${mobileDropdown === item.label ? "rotated" : ""}`}
-                    width="10"
-                    height="6"
-                    viewBox="0 0 10 6"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M1 1L5 5L9 1"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
-
-                {/* Dropdown panel */}
                 <div
-                  className={`nav-dropdown-panel ${
-                    mobileDropdown === item.label ? "mobile-open" : ""
-                  }`}
+                  className="nav-dropdown-flyout"
+                  role="menu"
+                  aria-label={`Submenu ${item.label}`}
                 >
                   {item.dropdown.map((sub) => (
                     <Link
                       key={sub.href}
                       href={sub.href}
-                      className="nav-dropdown-item"
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setActiveDropdown(null);
-                        setMobileDropdown(null);
-                      }}
+                      role="menuitem"
+                      className="nav-dropdown-flyout-item"
+                      onClick={() => setActiveDropdown(null)}
                     >
-                      <span className="nav-dropdown-arrow">›</span>
-                      {sub.label}
+                      <span className="nav-dropdown-item-title">{sub.label}</span>
+                      {sub.description && (
+                        <span className="nav-dropdown-item-desc">
+                          {sub.description}
+                        </span>
+                      )}
                     </Link>
                   ))}
                 </div>
@@ -205,13 +209,112 @@ export default function Header() {
               <Link
                 key={item.label}
                 href={item.href}
-                onClick={() => setMobileOpen(false)}
+                className={`nav-link-v2 ${pathname === item.href ? "is-active" : ""}`}
               >
                 {item.label}
               </Link>
             )
           )}
         </nav>
+
+        {/* Mobile Hamburger Toggle */}
+        <button
+          type="button"
+          className={`mobile-toggle-btn ${mobileOpen ? "is-active" : ""}`}
+          aria-label={mobileOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-nav-panel"
+          onClick={() => setMobileOpen(!mobileOpen)}
+        >
+          <span className="toggle-bar" />
+          <span className="toggle-bar" />
+          <span className="toggle-bar" />
+        </button>
+      </div>
+
+      {/* Mobile Drawer */}
+      <div
+        id="mobile-nav-panel"
+        className={`mobile-drawer-v2 ${mobileOpen ? "is-open" : ""}`}
+        aria-hidden={!mobileOpen}
+      >
+        <div
+          className="mobile-drawer-backdrop"
+          onClick={() => setMobileOpen(false)}
+        />
+        <div className="mobile-drawer-content">
+          <div className="mobile-drawer-header">
+            <span className="mobile-drawer-title">Menu Navigasi</span>
+            <button
+              type="button"
+              className="mobile-drawer-close"
+              aria-label="Tutup menu"
+              onClick={() => setMobileOpen(false)}
+            >
+              ✕
+            </button>
+          </div>
+
+          <nav className="mobile-drawer-links" aria-label="Menu Mobile">
+            {navItems.map((item) =>
+              item.dropdown ? (
+                <div key={item.label} className="mobile-nav-group">
+                  <div className="mobile-nav-group-header">
+                    <Link
+                      href={item.href}
+                      className="mobile-nav-main-link"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                    <button
+                      type="button"
+                      className="mobile-nav-expand-btn"
+                      aria-label={`Buka submenu ${item.label}`}
+                      aria-expanded={mobileDropdown === item.label}
+                      onClick={() => toggleMobileDropdown(item.label)}
+                    >
+                      <span
+                        className={`expand-chevron ${
+                          mobileDropdown === item.label ? "is-rotated" : ""
+                        }`}
+                      >
+                        ▾
+                      </span>
+                    </button>
+                  </div>
+
+                  {mobileDropdown === item.label && (
+                    <div className="mobile-nav-sublist">
+                      {item.dropdown.map((sub) => (
+                        <Link
+                          key={sub.href}
+                          href={sub.href}
+                          className="mobile-nav-sublink"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          <span className="sublink-dot" aria-hidden="true">
+                            ›
+                          </span>
+                          <span>{sub.label}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="mobile-nav-main-link single-link"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
+          </nav>
+        </div>
       </div>
     </header>
   );

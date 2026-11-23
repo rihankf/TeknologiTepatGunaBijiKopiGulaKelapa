@@ -5,7 +5,7 @@ import FloatingContact from "@/components/ui/FloatingContact";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Mitra Kerjasama — Teknologi Tepat Guna",
+  title: "Mitra Kerjasama: Teknologi Tepat Guna",
   description:
     "BPVP Bandung Barat sebagai mitra kerjasama dalam proyek teknologi tepat guna untuk komoditas unggulan Indonesia.",
 };
