@@ -20,7 +20,7 @@ export default function MitraPage() {
           style={{ position: "relative", overflow: "hidden" }}
         >
           <Image
-            src="/images/bg-mitra.jpg"
+            src="/images/bg-mitra.webp"
             alt="Background Mitra"
             fill
             priority
@@ -50,7 +50,7 @@ export default function MitraPage() {
               }}
             >
               <Image
-                src="/images/logo-kemnaker.png"
+                src="/images/logo-kemnaker.webp"
                 alt="Logo Kementerian Ketenagakerjaan"
                 width={200}
                 height={50}

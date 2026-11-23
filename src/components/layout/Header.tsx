@@ -131,7 +131,7 @@ export default function Header() {
           aria-label="Kembali ke Beranda Petrolab Teknologi Tepat Guna"
         >
           <Image
-            src="/images/logo.png"
+            src="/images/logo.webp"
             alt="Petrolab"
             width={240}
             height={70}

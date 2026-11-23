@@ -48,7 +48,7 @@ export default function TentangContent() {
             >
               {isKopi
                 ? "Berdasarkan identifikasi permasalahan pascapanen Biji Kopi, terdapat tiga masalah utama:"
-                : "Berdasarkan identifikasi permasalahan pengolahan gula kelapa, terdapat dua masalah utama:"}
+                : "Berdasarkan identifikasi permasalahan pengolahan Gula Kelapa, terdapat dua masalah utama:"}
             </p>
 
             {/* Timeline */}
@@ -157,7 +157,7 @@ export default function TentangContent() {
               <div style={{ textAlign: "center" }}>
                 {isKopi ? (
                   <Image
-                    src="/images/sejarah-kopi.jpg"
+                    src="/images/sejarah-kopi.webp"
                     alt="Ilustrasi Sejarah Biji Kopi Indonesia"
                     width={800}
                     height={533}
@@ -172,7 +172,7 @@ export default function TentangContent() {
                   />
                 ) : (
                   <Image
-                    src="/images/sejarah-gulakelapa.png"
+                    src="/images/sejarah-gulakelapa.webp"
                     alt="Ilustrasi Pengolahan Gula Kelapa Indonesia"
                     width={800}
                     height={533}
@@ -249,7 +249,7 @@ export default function TentangContent() {
                 <div className="objective-number">01</div>
                 <div className="objective-illustration">
                   <Image
-                    src="/images/obj-identifikasi.jpg"
+                    src="/images/obj-identifikasi.webp"
                     alt="Ilustrasi Identifikasi Kebutuhan"
                     width={400}
                     height={300}
@@ -266,7 +266,7 @@ export default function TentangContent() {
                 <div className="objective-number">02</div>
                 <div className="objective-illustration">
                   <Image
-                    src="/images/obj-survei.jpg"
+                    src="/images/obj-survei.webp"
                     alt="Ilustrasi Survei Teknologi"
                     width={400}
                     height={300}
@@ -283,7 +283,7 @@ export default function TentangContent() {
                 <div className="objective-number">03</div>
                 <div className="objective-illustration">
                   <Image
-                    src="/images/obj-rekomendasi.jpg"
+                    src="/images/obj-rekomendasi.webp"
                     alt="Ilustrasi Rekomendasi Solusi"
                     width={400}
                     height={300}
@@ -300,7 +300,7 @@ export default function TentangContent() {
                 <div className="objective-number">04</div>
                 <div className="objective-illustration">
                   <Image
-                    src="/images/obj-katalog.jpg"
+                    src="/images/obj-katalog.webp"
                     alt="Ilustrasi Katalog"
                     width={400}
                     height={300}

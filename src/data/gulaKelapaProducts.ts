@@ -6,7 +6,7 @@ export const gulaKelapaTools: Tool[] = [
     slug: "mesin-kristalisator-rumah-mesin",
     name: "Mesin Kristalisator Gula Kapasitas 28 Liter",
     category: "Pemasakan",
-    image: "/images/Pemasakan1.png",
+    image: "/images/Pemasakan1.webp",
     problem:
       "Proses memasak nira kelapa menjadi cairan gula sangat kental (adonan) secara manual membutuhkan banyak tenaga, waktu, dan biaya.",
     description:
@@ -27,7 +27,7 @@ export const gulaKelapaTools: Tool[] = [
     slug: "kristalisator-andaro-adr-mkgs30",
     name: "Mesin Kristalisator ANDARO ADR-MKGS30",
     category: "Pemasakan",
-    image: "/images/Pemasakan2.png",
+    image: "/images/Pemasakan2.webp",
     problem:
       "Pengadukan nira kelapa yang sudah dimasak menjadi kristal gula semut membutuhkan pengadukan manual yang terus-menerus dan melelahkan.",
     description:
@@ -48,7 +48,7 @@ export const gulaKelapaTools: Tool[] = [
     slug: "mesin-kristalisasi-gula-semut-tokopedia",
     name: "Mesin Kristalisasi Gula Semut 25 Kg",
     category: "Pemasakan",
-    image: "/images/Pemasakan3.png",
+    image: "/images/Pemasakan3.webp",
     problem:
       "Dibutuhkan mesin kapasitas menengah untuk memproduksi kristal gula semut atau gula aren secara efisien.",
     description:
@@ -66,7 +66,7 @@ export const gulaKelapaTools: Tool[] = [
     slug: "mesin-perajang-andaro-adr-mpg50",
     name: "Mesin Perajang Gula Semut ANDARO ADR-MPG50",
     category: "Pemasakan",
-    image: "/images/Pemasakan4.png",
+    image: "/images/Pemasakan4.webp",
     problem:
       "Bongkahan gula belum siap masuk proses penepungan atau sortasi bila ukurannya masih terlalu besar.",
     description:
@@ -87,7 +87,7 @@ export const gulaKelapaTools: Tool[] = [
     slug: "oven-gula-semut-andaro-adr-mogs50",
     name: "Oven Gula Semut ANDARO ADR-MOGS50",
     category: "Pemasakan",
-    image: "/images/Pemasakan5.png",
+    image: "/images/Pemasakan5.webp",
     problem:
       "Gula semut hasil kristalisasi belum siap disimpan atau dikemas bila kadar airnya masih tinggi karena mudah menggumpal.",
     description:

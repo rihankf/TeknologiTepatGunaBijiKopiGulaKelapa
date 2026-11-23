@@ -5,7 +5,7 @@ export const kopiTools: Tool[] = [
     slug: "mesin-pemanas-ruangan",
     name: "Mesin Pemanas Ruangan",
     category: "Pengeringan",
-    image: "/images/Pengering1.png",
+    image: "/images/Pengering1.webp",
     problem:
       "Bergantung pada sinar matahari sehingga terkendala cuaca, lahan, kapasitas, dan biaya fasilitas.",
     description:
@@ -24,7 +24,7 @@ export const kopiTools: Tool[] = [
     slug: "mesin-oven-gas-10-rak-1-pintu",
     name: "Mesin Oven Gas 10 Rak 1 Pintu",
     category: "Pengeringan",
-    image: "/images/Pengering2.png",
+    image: "/images/Pengering2.webp",
     problem:
       "Bergantung pada sinar matahari sehingga terkendala cuaca, lahan, kapasitas, dan biaya fasilitas.",
     description:
@@ -43,7 +43,7 @@ export const kopiTools: Tool[] = [
     slug: "rotary-dryer-100-kg-raja",
     name: "Rotary Dryer 100 kg",
     category: "Pengeringan",
-    image: "/images/Pengering3.png",
+    image: "/images/Pengering3.webp",
     problem:
       "Bergantung pada sinar matahari sehingga terkendala cuaca, lahan, kapasitas, dan biaya fasilitas.",
     description:
@@ -62,7 +62,7 @@ export const kopiTools: Tool[] = [
     slug: "rotary-dryer-100-kg-hanindo",
     name: "Rotary Dryer 100 kg",
     category: "Pengeringan",
-    image: "/images/Pengering4.png",
+    image: "/images/Pengering4.webp",
     problem:
       "Bergantung pada sinar matahari sehingga terkendala cuaca, lahan, kapasitas, dan biaya fasilitas.",
     description:
@@ -81,7 +81,7 @@ export const kopiTools: Tool[] = [
     slug: "agr-boxin4000",
     name: "AGR-BOXIN4000",
     category: "Pengeringan",
-    image: "/images/Pengering5.png",
+    image: "/images/Pengering5.webp",
     problem:
       "Bergantung pada sinar matahari sehingga terkendala cuaca, lahan, kapasitas, dan biaya fasilitas.",
     description:
@@ -104,7 +104,7 @@ export const kopiTools: Tool[] = [
     slug: "benetech-gm640",
     name: "Benetech GM640",
     category: "Pengukuran",
-    image: "/images/Pengukur1.png",
+    image: "/images/Pengukur1.webp",
     problem:
       "Alat ukur relatif mahal sehingga petani masih banyak mengandalkan pemeriksaan manual.",
     description:
@@ -141,7 +141,7 @@ export const kopiTools: Tool[] = [
     slug: "wile-coffee-55-200",
     name: "Wile Coffee (Wile 55 / 200)",
     category: "Pengukuran",
-    image: "/images/Pengukur2.png",
+    image: "/images/Pengukur2.webp",
     problem:
       "Alat ukur relatif mahal sehingga petani masih banyak mengandalkan pemeriksaan manual.",
     description:
@@ -174,7 +174,7 @@ export const kopiTools: Tool[] = [
     slug: "md7822",
     name: "MD7822",
     category: "Pengukuran",
-    image: "/images/Pengukur3.png",
+    image: "/images/Pengukur3.webp",
     problem:
       "Alat ukur relatif mahal sehingga petani masih banyak mengandalkan pemeriksaan manual.",
     description:
@@ -209,7 +209,7 @@ export const kopiTools: Tool[] = [
     slug: "kett-pm-450",
     name: "Kett PM-450",
     category: "Pengukuran",
-    image: "/images/Pengukur4.png",
+    image: "/images/Pengukur4.webp",
     problem:
       "Alat ukur relatif mahal sehingga petani masih banyak mengandalkan pemeriksaan manual.",
     description:
@@ -242,7 +242,7 @@ export const kopiTools: Tool[] = [
     slug: "lds-1g",
     name: "LDS-1G",
     category: "Pengukuran",
-    image: "/images/Pengukur5.png",
+    image: "/images/Pengukur5.webp",
     problem:
       "Alat ukur relatif mahal sehingga petani masih banyak mengandalkan pemeriksaan manual.",
     description:
@@ -275,7 +275,7 @@ export const kopiTools: Tool[] = [
     slug: "dickey-john-mini-gac-plus",
     name: "Dickey-John Mini GAC Plus",
     category: "Pengukuran",
-    image: "/images/Pengukur6.png",
+    image: "/images/Pengukur6.webp",
     problem:
       "Alat ukur relatif mahal sehingga petani masih banyak mengandalkan pemeriksaan manual.",
     description:
@@ -306,7 +306,7 @@ export const kopiTools: Tool[] = [
     slug: "draminski-twistgrain-pro",
     name: "Draminski TwistGrain Pro",
     category: "Pengukuran",
-    image: "/images/Pengukur7.png",
+    image: "/images/Pengukur7.webp",
     problem:
       "Alat ukur relatif mahal sehingga petani masih banyak mengandalkan pemeriksaan manual.",
     description:
@@ -337,7 +337,7 @@ export const kopiTools: Tool[] = [
     slug: "mesin-sortasi-berbasis-ai",
     name: "Mesin Sortasi Berbasis AI",
     category: "Pemilahan",
-    image: "/images/Pemilah1.png",
+    image: "/images/Pemilah1.webp",
     problem:
       "Sistem kering sulit memisahkan berdasarkan berat jenis, sedangkan sistem basah membutuhkan banyak air.",
     description:
@@ -357,7 +357,7 @@ export const kopiTools: Tool[] = [
     slug: "mesin-sortasi-load-cell-sensor-fotoelektrik",
     name: "Mesin Sortasi berbasis load cell dan sensor fotoelektrik",
     category: "Pemilahan",
-    image: "/images/Pemilah2.png",
+    image: "/images/Pemilah2.webp",
     problem:
       "Sistem kering sulit memisahkan berdasarkan berat jenis, sedangkan sistem basah membutuhkan banyak air.",
     description:
@@ -378,7 +378,7 @@ export const kopiTools: Tool[] = [
     slug: "mesin-mini-coffee-bean-color-sorter",
     name: "Mesin Mini Coffee Bean Color Sorter",
     category: "Pemilahan",
-    image: "/images/Pemilah3.png",
+    image: "/images/Pemilah3.webp",
     problem:
       "Sistem kering sulit memisahkan berdasarkan berat jenis, sedangkan sistem basah membutuhkan banyak air.",
     description:
@@ -402,7 +402,7 @@ export const kopiTools: Tool[] = [
     slug: "coffee-gravity-separator",
     name: "Coffee Gravity Separator",
     category: "Pemilahan",
-    image: "/images/Pemilah4.png",
+    image: "/images/Pemilah4.webp",
     problem:
       "Sistem kering sulit memisahkan berdasarkan berat jenis, sedangkan sistem basah membutuhkan banyak air.",
     description:
@@ -428,7 +428,7 @@ export const kopiTools: Tool[] = [
     slug: "mesin-gravity-separator",
     name: "Mesin Gravity Separator",
     category: "Pemilahan",
-    image: "/images/Pemilah5.png",
+    image: "/images/Pemilah5.webp",
     problem:
       "Sistem kering sulit memisahkan berdasarkan berat jenis, sedangkan sistem basah membutuhkan banyak air.",
     description:

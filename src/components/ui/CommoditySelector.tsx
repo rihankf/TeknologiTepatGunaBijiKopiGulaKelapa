@@ -1,6 +1,7 @@
 "use client";
 
 import { KeyboardEvent } from "react";
+import Image from "next/image";
 
 export type Commodity = "kopi" | "gula-kelapa";
 
@@ -11,8 +12,7 @@ interface CommoditySelectorProps {
 
 interface CommodityMeta {
   id: Commodity;
-  code: string;
-  icon: string;
+  image: string;
   label: string;
   focusArea: string;
   description: string;
@@ -21,16 +21,14 @@ interface CommodityMeta {
 const commodities: CommodityMeta[] = [
   {
     id: "kopi",
-    code: "01",
-    icon: "☕",
+    image: "/images/sejarah-kopi.webp",
     label: "Biji Kopi",
     focusArea: "Pasca Panen",
     description: "Solusi mekanisasi pengeringan terkontrol, instrumen kadar air presisi, dan mesin pemilah sortasi biji kopi.",
   },
   {
     id: "gula-kelapa",
-    code: "02",
-    icon: "🥥",
+    image: "/images/sejarah-gulakelapa.webp",
     label: "Gula Kelapa",
     focusArea: "Pengolahan Nira",
     description: "Teknologi filtrasi nira bersih, wajan pengaduk mekanis, dan oven pengering kristalisasi gula semut higienis.",
@@ -76,10 +74,16 @@ export default function CommoditySelector({
               onClick={() => onChange(item.id)}
               onKeyDown={(e) => handleKeyDown(e, item.id)}
             >
-              <div className="commodity-tab-header">
-                <span className="commodity-tab-number">
-                  KOMODITAS {item.code}
-                </span>
+              <div className="commodity-tab-banner">
+                <Image
+                  src={item.image}
+                  alt={`Komoditas ${item.label}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="commodity-tab-img"
+                  priority
+                />
+                <div className="commodity-tab-banner-overlay" />
                 <span
                   className="commodity-tab-focus"
                   aria-label={`Fokus: ${item.focusArea}`}
@@ -88,27 +92,20 @@ export default function CommoditySelector({
                 </span>
               </div>
 
-              <div className="commodity-tab-body">
-                <span
-                  className="commodity-tab-icon"
-                  role="img"
-                  aria-label={`Ikon ${item.label}`}
-                >
-                  {item.icon}
-                </span>
+              <div className="commodity-tab-main">
                 <div className="commodity-tab-content">
                   <h3 className="commodity-tab-title">{item.label}</h3>
                   <p className="commodity-tab-desc">{item.description}</p>
                 </div>
-              </div>
 
-              <div className="commodity-tab-footer">
-                <span className="commodity-tab-status">
-                  {isSelected ? "Sedang Ditampilkan" : "Pilih Komoditas Ini"}
-                </span>
-                <span className="commodity-tab-indicator" aria-hidden="true">
-                  {isSelected ? "●" : "→"}
-                </span>
+                <div className="commodity-tab-footer">
+                  <span className="commodity-tab-status">
+                    {isSelected ? "Sedang Ditampilkan" : "Pilih Komoditas Ini"}
+                  </span>
+                  <span className="commodity-tab-indicator" aria-hidden="true">
+                    {isSelected ? "●" : "→"}
+                  </span>
+                </div>
               </div>
             </button>
           );

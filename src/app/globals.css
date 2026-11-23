@@ -337,7 +337,7 @@ body:has(.home-page) .site-header:not(.scrolled) {
 .hero {
   min-height: 100vh;
   position: relative;
-  background: url("/images/latarbelakang.png") center 50% / cover no-repeat;
+  background: url("/images/latarbelakang.webp") center 50% / cover no-repeat;
   color: white;
   display: flex;
   align-items: center;
@@ -553,7 +553,7 @@ body:has(.home-page) .site-header:not(.scrolled) {
 }
 
 .objectives-section {
-  background: url("/images/latarbelakang.png") center/cover no-repeat;
+  background: url("/images/latarbelakang.webp") center/cover no-repeat;
   position: relative;
   overflow: hidden;
 }
@@ -680,17 +680,19 @@ body:has(.home-page) .site-header:not(.scrolled) {
 }
 .catalog-card:hover {
   transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--sand);
+  background: #fef5ea;
+  box-shadow: 0 10px 24px rgba(217, 119, 6, 0.16);
+  border-color: var(--accent);
 }
 .catalog-image {
   position: relative;
   aspect-ratio: 1.4;
   overflow: hidden;
-  background: var(--cream);
+  background: #ffffff;
 }
 .catalog-image img {
-  object-fit: cover;
+  object-fit: contain;
+  padding: 12px;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .catalog-card:hover .catalog-image img {
@@ -918,9 +920,12 @@ body:has(.home-page) .site-header:not(.scrolled) {
   aspect-ratio: 1;
   overflow: hidden;
   border-radius: var(--radius);
+  background: #ffffff;
+  border: 1px solid var(--border);
 }
 .product-main-image img {
-  object-fit: cover;
+  object-fit: contain;
+  padding: 16px;
   transition: transform 0.8s;
 }
 .product-main-image:hover img {
@@ -1690,78 +1695,101 @@ body:has(.not-found) .site-header {
 .commodity-selector-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 20px;
+  gap: 24px;
 }
 .commodity-tab-card {
   display: flex;
   flex-direction: column;
-  padding: 24px;
+  padding: 0;
+  overflow: hidden;
   border-radius: var(--radius);
   border: 1px solid var(--border);
   background: var(--surface-card);
   color: var(--text-main);
   text-align: left;
-  transition: all var(--transition);
-  min-height: 190px;
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
   position: relative;
 }
 .commodity-tab-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   border-color: var(--border-strong);
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }
 .commodity-tab-kopi.is-selected {
   background: #23140c;
   color: #ffffff;
   border-color: #d97706;
-  box-shadow: 0 8px 24px rgba(35, 20, 12, 0.2);
+  box-shadow: 0 10px 30px rgba(35, 20, 12, 0.28);
 }
 .commodity-tab-gula-kelapa.is-selected {
   background: #2b170c;
   color: #ffffff;
   border-color: #c2410c;
-  box-shadow: 0 8px 24px rgba(43, 23, 12, 0.2);
+  box-shadow: 0 10px 30px rgba(43, 23, 12, 0.28);
 }
-.commodity-tab-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 14px;
+
+.commodity-tab-banner {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  background: #f5f0eb;
 }
-.commodity-tab-number {
-  font-family: "Montserrat", sans-serif;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  opacity: 0.65;
+.commodity-tab-img {
+  object-fit: cover;
+  object-position: center 30%;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.commodity-tab-focus {
+.commodity-tab-card:hover .commodity-tab-img {
+  transform: scale(1.04);
+}
+.commodity-tab-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.42) 100%);
+  pointer-events: none;
+}
+.is-selected .commodity-tab-banner-overlay {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(20, 10, 6, 0.65) 100%);
+}
+
+.commodity-tab-banner .commodity-tab-focus {
+  position: absolute;
+  top: 14px;
+  right: 14px;
   font-size: 11px;
   font-weight: 700;
-  padding: 3px 8px;
+  padding: 4px 10px;
   border-radius: var(--radius-xs);
-  background: rgba(217, 119, 6, 0.12);
-  color: var(--accent);
+  background: rgba(255, 255, 255, 0.95);
+  color: #78350f;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  z-index: 2;
 }
-.is-selected .commodity-tab-focus {
-  background: rgba(255, 255, 255, 0.15);
+.commodity-tab-kopi.is-selected .commodity-tab-banner .commodity-tab-focus {
+  background: #d97706;
   color: #ffffff;
 }
-.commodity-tab-body {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 16px;
+.commodity-tab-gula-kelapa.is-selected .commodity-tab-banner .commodity-tab-focus {
+  background: #c2410c;
+  color: #ffffff;
 }
-.commodity-tab-icon {
-  font-size: 32px;
-  line-height: 1;
+
+.commodity-tab-main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 22px 24px 20px;
+}
+.commodity-tab-content {
+  margin-bottom: 16px;
 }
 .commodity-tab-title {
   font-family: "Montserrat", sans-serif;
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 800;
-  margin: 0 0 6px;
+  margin: 0 0 8px;
   color: inherit;
 }
 .commodity-tab-desc {
@@ -1772,16 +1800,16 @@ body:has(.not-found) .site-header {
 }
 .commodity-tab-footer {
   margin-top: auto;
-  padding-top: 14px;
+  padding-top: 16px;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
 }
 .is-selected .commodity-tab-footer {
-  border-top-color: rgba(255, 255, 255, 0.12);
+  border-top-color: rgba(255, 255, 255, 0.14);
 }
 .commodity-tab-status {
   opacity: 0.9;
@@ -1808,51 +1836,49 @@ body:has(.not-found) .site-header {
 }
 .problem-card-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 16px;
   margin-bottom: 18px;
 }
-.problem-card-icon-wrap {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-sm);
-  background: var(--surface-subtle);
-  border: 1px solid var(--border);
+.problem-card-node {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--sand);
+  border: 3px solid var(--sand);
+  box-shadow: 0 0 0 6px rgba(201, 168, 76, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  transition: transform var(--transition), box-shadow var(--transition);
 }
-.problem-card-tag {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--accent);
-  background: var(--accent-light);
-  border: 1px solid rgba(217, 119, 6, 0.2);
-  padding: 3px 8px;
-  border-radius: var(--radius-xs);
+.problem-node-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+.problem-card-v2:hover .problem-card-node {
+  transform: scale(1.06);
+  box-shadow: 0 0 0 8px rgba(201, 168, 76, 0.3);
 }
 .problem-card-title {
   font-family: "Montserrat", sans-serif;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
   line-height: 1.35;
   color: var(--ink);
-  margin: 0 0 12px;
+  margin: 0;
 }
 .problem-card-desc {
   font-size: 14px;
   line-height: 1.75;
   color: var(--text-muted);
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 .problem-card-desc p {
   margin: 0;
 }
 .problem-card-impact {
-  margin-top: auto;
   background: #fffbeb;
   border: 1px solid #fde68a;
   border-radius: var(--radius-sm);
@@ -1904,14 +1930,19 @@ body:has(.not-found) .site-header {
 }
 .catalog-card-v2:hover {
   transform: translateY(-3px);
+  background: #fef5ea;
   border-color: var(--accent);
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 10px 24px rgba(217, 119, 6, 0.16);
+}
+.catalog-card-v2:hover .catalog-card-media {
+  background: #ffffff;
 }
 .catalog-card-media {
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 3;
-  background: var(--surface-subtle);
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-subtle);
   overflow: hidden;
 }
 .catalog-card-image-wrap {
@@ -1920,7 +1951,8 @@ body:has(.not-found) .site-header {
   height: 100%;
 }
 .catalog-card-img {
-  object-fit: cover;
+  object-fit: contain;
+  padding: 12px;
   transition: transform 0.4s ease;
 }
 .catalog-card-v2:hover .catalog-card-img {
