@@ -514,6 +514,17 @@ body:has(.home-page) .site-header:not(.scrolled) {
 .about {
   padding-top: 60px;
 }
+.about .section-heading {
+  margin-bottom: 24px;
+}
+.about .section-title {
+  max-width: none;
+}
+@media (min-width: 900px) {
+  .about .section-title {
+    white-space: nowrap;
+  }
+}
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -549,7 +560,7 @@ body:has(.home-page) .site-header:not(.scrolled) {
 }
 .section-heading h2 {
   font-size: 40px;
-  max-width: 520px;
+  max-width: none;
 }
 
 .objectives-section {

@@ -152,7 +152,14 @@ export default function TentangContent() {
         {/* ── Latar Belakang ── */}
         <section id="latar-belakang" className="about section">
           <div className="container">
-            <SectionHeading title={isKopi ? "Mengapa Biji Kopi Perlu Teknologi Tepat Guna?" : "Mengapa Gula Kelapa Perlu Teknologi Tepat Guna?"} />
+            <SectionHeading
+              align="left"
+              title={
+                isKopi
+                  ? "Mengapa Biji Kopi Perlu Teknologi Tepat Guna?"
+                  : "Mengapa Gula Kelapa Perlu Teknologi Tepat Guna?"
+              }
+            />
             <div className="about-grid" style={{ marginTop: "40px" }}>
               <div style={{ textAlign: "center" }}>
                 {isKopi ? (
